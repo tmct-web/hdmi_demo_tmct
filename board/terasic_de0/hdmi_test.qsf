@@ -92,7 +92,8 @@ set_location_assignment PIN_G4 -to I_AUDIO_PITCH[3]
 set_location_assignment PIN_H6 -to I_AUDIO_PITCH[2]
 set_location_assignment PIN_H5 -to I_AUDIO_PITCH[1]
 set_location_assignment PIN_J6 -to I_AUDIO_PITCH[0]
-set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/hdmi_test_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/hdmi_test_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/serializer.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/tmds_channel.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/source_product_description_info_frame.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/packet_picker.sv
@@ -102,7 +103,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/auxiliary_video_informa
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/audio_sample_packet.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/audio_info_frame.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../../rtl/audio_clock_regeneration_packet.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/serializer.sv
 set_global_assignment -name QIP_FILE ip/pll/media_pll.qip
 set_global_assignment -name QIP_FILE ip/serializer/stx.qip
 set_global_assignment -name SDC_FILE "sdc/hdmi-test.sdc"
