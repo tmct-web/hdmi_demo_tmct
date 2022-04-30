@@ -17,6 +17,10 @@ Project files for the development environment will also be included so you can u
 ## Specifications, etc.
 The evaluation board, output signal specifications, etc. are as follows:  
 *As a typical specification, this document shows an example port to Terasic DE0.  
+For other board projects, please see below.  
+- Terasic DE0 ... This document
+- [Terasic DE0CV](./board/terasic_de0cv/readme.md)
+
 *Since the PLL and serializer use Intel-specific IP, these must be replaced when porting to non-Intel FPGAs.
 
 |  | Specifications |
@@ -131,6 +135,10 @@ The following sites and projects were referenced in the production of this proje
 ## 仕様など
 今回使用した評価ボード、出力信号の仕様などは以下の通りです。  
 ※代表的なスペックとして、このドキュメントではTerasic DE0への移植例を示します。  
+その他のボードのプロジェクトは以下をご覧ください。  
+- Terasic DE0 ... このドキュメント
+- [Terasic DE0CV](./board/terasic_de0cv/readme.md)
+
 ※PLLとシリアライザにIntel固有IPを利用しているため、Intel以外のFPGAに移植する際はこれらを置き換える必要があります。
 
 |  | 仕様 |
