@@ -1,11 +1,14 @@
 # hdmi_demo_tmct
-Send video/audio over HDMI on an FPGA: Terasic DE0  
-This project is a sample of Sameer Puri's HDMI library ported to Terasic DE0.  
-[hdl-util/hdmi](https://github.com/hdl-util/hdmi)
+Send video/audio over HDMI on an FPGA  
+This project is a port of Sameer Puri's HDMI library to various prototype boards.  
+[hdl-util/hdmi](https://github.com/hdl-util/hdmi)  
+Project files for the development environment will also be included so you can use them as a reference for creating your own project.
+
 
 音声パケット付きDVI(HDMI)出力ライブラリ  
-このプロジェクトはSameer PuriさんのHDMIライブラリをTerasic DE0に移植したものです。  
-[hdl-util/hdmi](https://github.com/hdl-util/hdmi)
+このプロジェクトはSameer PuriさんのHDMIライブラリを色々なプロトタイプボードに移植したものです。  
+[hdl-util/hdmi](https://github.com/hdl-util/hdmi)  
+開発環境のプロジェクトファイルも含まれるので、新しいプロジェクトを作る際の参考として使用することができます。  
 ※日本語の解説文は英文解説の後にあります。
 
 ![HDMI-FPGAテスト環境の写真(1)](./image/hdmi_test(1).jpg "Photo of HDMI test environment(1)")
@@ -13,6 +16,7 @@ This project is a sample of Sameer Puri's HDMI library ported to Terasic DE0.
 ---
 ## Specifications, etc.
 The evaluation board, output signal specifications, etc. are as follows:  
+*As a typical specification, this document shows an example port to Terasic DE0.  
 *Since the PLL and serializer use Intel-specific IP, these must be replaced when porting to non-Intel FPGAs.
 
 |  | Specifications |
@@ -52,9 +56,9 @@ Everything specific to the board/FPGA device is placed under /boards/terasic_de0
 | /board/terasic_de0/ip/pll/ | CycloneIII altpll |
 | /board/terasic_de0/ip/serializer/ | CycloneIII altlvds_tx |
 | /board/terasic_de0/output_files/ | Logic synthesis output folder |
-| /board/terasic_de0/rtl/ | DE0-specific rtl<br/>Wrapper for altlvds_tx (including MSB first to LSB first conversion) |
+| /board/terasic_de0/rtl/ | DE0-specific rtl<br/>　- serializer.sv ... Wrapper for altlvds_tx (including MSB first to LSB first conversion)<br/>　- hdmi_test_top.sv ... Top-level entry (including image and audio test pattern generator) |
 | /board/terasic_de0/sdc/ | Timing constraint setting |
-| /rtl/ | Sammer's HDMI library, etc.<br/>　- hdmi_test_top.sv ... Top-level entry (including image and audio test pattern generator)<br/>　- hdmi.sv ... HDMI library body<br/>　※Serializer.sv is not used. |
+| /rtl/ | Sammer's HDMI library, etc.<br/>　- hdmi.sv ... HDMI library body<br/>　※Serializer.sv is not used. |
 
 
 ## Hardware Connections
@@ -126,6 +130,7 @@ The following sites and projects were referenced in the production of this proje
 ---
 ## 仕様など
 今回使用した評価ボード、出力信号の仕様などは以下の通りです。  
+※代表的なスペックとして、このドキュメントではTerasic DE0への移植例を示します。  
 ※PLLとシリアライザにIntel固有IPを利用しているため、Intel以外のFPGAに移植する際はこれらを置き換える必要があります。
 
 |  | 仕様 |
@@ -165,9 +170,9 @@ Total PLLs : 1 / 4 ( 25 % )
 | /board/terasic_de0/ip/pll/ | CycloneIII altpll |
 | /board/terasic_de0/ip/serializer/ | CycloneIII altlvds_tx |
 | /board/terasic_de0/output_files/ | 論理合成出力フォルダ |
-| /board/terasic_de0/rtl/ | DE0固有rtl<br/>altlvds_txのラッパー(MSB first→LSB first変換含む) |
+| /board/terasic_de0/rtl/ | DE0固有rtl<br/>　- serializer.sv ... altlvds_txのラッパー(MSB first→LSB first変換含む)<br/>　- hdmi_test_top.sv ... トップレベルエントリ(画像・音声テストパターン生成器含む) |
 | /board/terasic_de0/sdc/ | タイミング制約設定 |
-| /rtl/ | SammerさんのHDMIライブラリなど<br/>　- hdmi_test_top.sv ... トップレベルエントリ(画像・音声テストパターン生成器含む)<br/>　- hdmi.sv ... HDMIライブラリ本体<br/>　※serializer.svは未使用 |
+| /rtl/ | SammerさんのHDMIライブラリなど<br/>　- hdmi.sv ... HDMIライブラリ本体<br/>　※serializer.svは未使用 |
 
 
 ## ハードウェアの結線
