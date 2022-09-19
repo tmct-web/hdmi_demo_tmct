@@ -1,5 +1,7 @@
 # hdmi_demo_tmct
 Send video/audio over HDMI on an FPGA  
+[日本語はこちら](#anchor0_ja)
+
 This project is a port of Sameer Puri's HDMI library to various prototype boards.  
 [hdl-util/hdmi](https://github.com/hdl-util/hdmi)  
 Project files for the development environment will also be included so you can use them as a reference for creating your own project.
@@ -9,11 +11,21 @@ Project files for the development environment will also be included so you can u
 このプロジェクトはSameer PuriさんのHDMIライブラリを色々なプロトタイプボードに移植したものです。  
 [hdl-util/hdmi](https://github.com/hdl-util/hdmi)  
 開発環境のプロジェクトファイルも含まれるので、新しいプロジェクトを作る際の参考として使用することができます。  
-※日本語の解説文は英文解説の後にあります。
+※日本語の解説文は[英文解説の後](#anchor0_ja)にあります。
 
 ![HDMI-FPGAテスト環境の写真(1)](./image/hdmi_test(1).jpg "Photo of HDMI test environment(1)")
 
 ---
+## Table Of Contents
+- [Specifications, etc.](#anchor1_en)
+- [Folder Structure](#anchor2_en)
+- [Hardware Connections](#anchor3_en)
+- [Operation test](#anchor4_en)
+- [Special thanks](#anchor5_en)
+
+
+<a id="anchor1_en"></a>
+
 ## Specifications, etc.
 The evaluation board, output signal specifications, etc. are as follows:  
 *As a typical specification, this document shows an example port to Terasic DE0.  
@@ -50,6 +62,7 @@ Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
 Total PLLs : 1 / 4 ( 25 % )
 ```
 
+<a id="anchor2_en"></a>
 
 ## Folder Structure
 Everything specific to the board/FPGA device is placed under /boards/terasic_de0/. (The project files themselves are also placed under this folder as they are strongly board/FPGA device dependent.)
@@ -64,6 +77,8 @@ Everything specific to the board/FPGA device is placed under /boards/terasic_de0
 | /board/terasic_de0/sdc/ | Timing constraint setting |
 | /rtl/ | Sammer's HDMI library, etc.<br/>　- hdmi.sv ... HDMI library body<br/>　※Serializer.sv is not used. |
 
+
+<a id="anchor3_en"></a>
 
 ## Hardware Connections
 The outputs from DE0 are assigned so that the differential outputs are next to each other as much as possible, as shown below.  
@@ -105,6 +120,8 @@ Please refer to the following for the pin assignment of the HDMI connector.
 > +5V, HPD, SCL, SDA, and CEC are not video signals, but some TVs and monitors may not show images if these signals are not connected properly.
 
 
+<a id="anchor4_en"></a>
+
 ## Operation test
 After connecting the monitor and transferring the logic to DE0, it will immediately start working and LEDG0 will light up to indicate PLL lock.  
 You will see a screen on your monitor with a colorful test pattern scrolling up to the left.  
@@ -120,6 +137,8 @@ The assignment of switches and LEDs is as follows.
 | SW0〜3 | **Audio test pattern frequency change**<br/>Turning on any of the switches will output a test tone, and changing the switch pattern will change the frequency.<br/>The waveform of the test audio is a sawtooth wave with low volume. |
 
 
+<a id="anchor5_en"></a>
+
 ## Special thanks
 The following sites and projects were referenced in the production of this project.
 
@@ -132,6 +151,18 @@ The following sites and projects were referenced in the production of this proje
 
 
 ---
+<a id="anchor0_ja"></a>
+
+## もくじ
+- [仕様など](#anchor1_ja)
+- [フォルダ構成](#anchor2_ja)
+- [ハードウェアの結線](#anchor3_ja)
+- [動作させる](#anchor4_ja)
+- [Special thanks](#anchor5_ja)
+
+
+<a id="anchor1_ja"></a>
+
 ## 仕様など
 今回使用した評価ボード、出力信号の仕様などは以下の通りです。  
 ※代表的なスペックとして、このドキュメントではTerasic DE0への移植例を示します。  
@@ -169,6 +200,8 @@ Total PLLs : 1 / 4 ( 25 % )
 ```
 
 
+<a id="anchor2_ja"></a>
+
 ## フォルダ構成
 ボード・FPGAデバイスに固有のものはすべて /boards/terasic_de0/ の下に配置しています。(プロジェクトファイル自体もボード・FPGAデバイスに強く依存するため、このフォルダの下に配置しています。)
 
@@ -182,6 +215,8 @@ Total PLLs : 1 / 4 ( 25 % )
 | /board/terasic_de0/sdc/ | タイミング制約設定 |
 | /rtl/ | SammerさんのHDMIライブラリなど<br/>　- hdmi.sv ... HDMIライブラリ本体<br/>　※serializer.svは未使用 |
 
+
+<a id="anchor3_ja"></a>
 
 ## ハードウェアの結線
 DE0からの出力は以下のようにできるだけ差動出力が隣になるようアサインしています。  
@@ -223,6 +258,8 @@ HDMIコネクタのピンアサインは以下を参考にどうぞ。
 > +5V,HPD,SCL,SDA,CEC は画像信号ではありませんが、TVやモニタによってはこれらが正しく接続されていないと映像が映らないことがあります。
 
 
+<a id="anchor4_ja"></a>
+
 ## 動作させる
 モニタを接続してDE0に論理を転送するとただちに動作を始め、LEDG0が点灯してPLLロックを示します。  
 モニタにはカラフルなテストパターンが左上にスクロールしていくような画面が表示されます。  
@@ -245,6 +282,8 @@ HDMIコネクタのピンアサインは以下を参考にどうぞ。
 - **FPGAから音声付きHDMI信号を出力する**  
   [https://ss1.xrea.com/tmct.s1009.xrea.com/doc/ta-ja-7e6b01.html](https://ss1.xrea.com/tmct.s1009.xrea.com/doc/ta-ja-7e6b01.html)
 
+
+<a id="anchor5_ja"></a>
 
 ## Special thanks
 このプロジェクトの製作にあたり、以下のサイト・プロジェクトを参照しました。
